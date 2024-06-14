@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+	<title>Gelder Airport</title>
 </head>
 <body>
-    <h1>It Works!</h1>
-    <?php echo('Hallo WT\'er, de webserver is online en PHP werkt.'); ?>
-    <br>
-    <br>
-    Alle technische informatie over je webserver vind je hier: <a href="phpinfo.php">http://<?=$_SERVER['HTTP_HOST']?>/phpinfo.php</a>
-    <br>
-    <br>
-    Een voorbeeld van een pagina die gegevens uit de database haalt vind je hier: <a href="componist-aantalstukken.php">http://<?=$_SERVER['HTTP_HOST']?>/componist-aantalstukken.php</a>
+	<header>
+		<h1>Welcome op de Gelder Airport website</h1>
+	</header>
+	
+	<nav>
+		<ul>
+			<li><a href="#">Vlucht</a></li>
+			<li><a href="#">Login</a></li>
+			<li><a href="#">Bronnen</a></li>
+		</ul>
+	</nav>
+	
+	<main>
+		<section>
+			<h2>Vlucheten Binnenkomend</h2>
+			<p>vluchten enzo</p>
+		</section>
+		
+		<section>
+			<h2>Vluchten vertrekkend</h2>
+			<p>This is a section about my interests. You can add more content, images, and links to make it more interesting.</p>
+		</section>
+		
+		<section>
+			<h2>Vragen</h2>
+			<p>Tijdelijk iets</p>
+		</section>
+	</main>
+	
+	<footer>
+		<p>&copy; Gelder Airport</p>
+	</footer>
 </body>
 </html>
