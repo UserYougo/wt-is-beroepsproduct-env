@@ -1,12 +1,12 @@
 <?php
     $aantaldagen = "";
 
-    if(ISSET($_GET['dagEen'], $_GET['dagTwee'])){
+    if(ISSET($_GET['dagEen'])){
     $dagEen = $_GET['dagEen'];
-    $dagTwee = $_GET['dagTwee'];
+
 
     $start = date_create($dagEen);
-    $doel = date_create($dagTwee);
+    $doel = date_create('now');
 
     $dagen = date_diff($start, $doel) ->format ('%a');
 
