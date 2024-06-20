@@ -1,0 +1,148 @@
+* {
+  font-style: oblique;
+  text-decoration: none;
+  list-style: none;
+}
+
+/*HEADER NAV*/
+header {
+  font-size: 120%;
+  height: min-content;
+  width: 100%;
+  text-align: center;
+  background-color: #ADD8E6;
+  margin-bottom: 0%;
+  margin-top: 0%;
+}
+
+h1 {
+  position: relative;
+  font-style: normal;
+  font-family: 'Georgia', serif;
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  transition: 3s ease-in-out;
+  color: #2E4053;
+}
+
+h1:hover {
+  transform: rotate(5deg);
+}
+
+header>nav {
+  margin-left: 0%;
+}
+
+header>nav>ul {
+  display: flex;
+  margin-bottom: 0%;
+  justify-content: space-around;
+  background-color: #FFFFFF;
+  padding: 0px;
+}
+
+header>nav>ul>li>a {
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #2E4053;
+}
+/*MAIN*/
+strong {
+  color: #2E4053;
+  background-color: #FFFFFF;
+  padding-left: 50px;
+  padding-right: 50px; 
+}
+
+
+
+@media screen and (max-width: 830px) {
+  strong {
+  border: solid #2E4053 1px;
+  }
+  header>nav>ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  strong {
+      border: solid #2E4053 1px;
+      padding-left: 50vh;
+      padding-right: 50vh;
+      }
+  header>nav>ul {
+      grid-template-columns: 1fr;
+  }
+}
+
+header>nav>ul>li:hover {
+  transition: ease-out 2s;
+  background-color: #ADD8E6;
+}
+
+header>nav>ul>li>a:hover {
+  transition: ease-in 1s;
+  color: #FFFFFF;  
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  background-image: url(../Afbeeldingen/Düsseldorf1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(240, 248, 255, 0.5);
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow-y: auto;
+  overflow-x: auto;
+  
+}
+
+main>section>* {
+  width: fit-content;
+  background-color: #FFFFFF;
+  padding: 20px;
+  color: #2E4053;
+  border: solid #2E4053 1px;
+  box-sizing: border-box;
+  
+}
+
+
+/*FOOTER*/
+footer {
+  display: flex;
+  height: 5%;
+  background-color: #ADD8E6; 
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+
+footer>section {
+margin-left: 5px;
+margin-right: 10px;
+color: #2E4053;
+}
+
+footer>section>h4>a {
+  color: #2E4053;
+  padding: 3px;
+  border-radius: 3px;
+  font-size: medium;
+}
+
+footer>section>h4>a:hover {
+  color: #FFFFFF;
+  font-size: large;
+}
