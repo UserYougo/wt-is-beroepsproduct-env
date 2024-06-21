@@ -123,14 +123,16 @@ if (isset($_POST['opslaan'])) {
         $deNieuweVlucht = $db -> prepare($maakVluchtQuery);
         $deNieuweVlucht ->execute([
             ':vluchtnummer' => $vluchtnummer, 
-            ':bestemming' => $_POST['bestemming'],
-            ':gatecode' => $_POST['gatecode'],
-            ':max_aantal' => $_POST['max_aantal'], 
-            ':max_gewicht_pp' => $_POST['max_gewicht_pp'],
-            ':max_totaalgewicht' => $_POST['max_totaalgewicht'],
-            ':vertrektijd' =>  (new DateTime($_POST['vertrektijd'])) -> format('Y-m-d\TH:i:s'),
-            ':maatschappijcode' => $_POST['maatschappijcode']
+            ':bestemming' => $bestemming,
+            ':gatecode' =>  $gatecode ,
+            ':max_aantal' => $maxAantal, 
+            ':max_gewicht_pp' => $maxGewichtPp,
+            ':max_totaalgewicht' => $maxTotaalGewicht ,
+            ':vertrektijd' =>  (new DateTime($vertrektijd)) -> format('Y-m-d\TH:i:s'),
+            ':maatschappijcode' => $maatschappijcode
         ]);
+
+        
 
         header("location: ../vluchtdetails.php?vluchtnummer=$vluchtnummer");
 

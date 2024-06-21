@@ -1,4 +1,8 @@
 <?php 
+if (empty($_SESSION['balienummer'])) {
+    header('Location: ../index.php');
+}
+
 //var_dump($_SESSION);
 define('MEDEWERKERHEADER' ,maakHeaderMedewerker());
 function maakHeaderMedewerker(){
