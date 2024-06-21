@@ -15,6 +15,9 @@ $passagiernummerVragen = "";
 if (!isset($_SESSION['passagiernummer'])) {
     $passagiernummerVragen = "<label for='passagiernummer'>passagiernummer:</label>" .
         "<input type='text' id='vluchtnummer' name='vluchtnummer'>";
+} else {
+    $passagiernummerVragen = "<label for='passagiernummer'>passagiernummer:</label>" .
+        "<input type='text' id='vluchtnummer' name='vluchtnummer' value='". $_SESSION['passagiernummer'] . "' readonly>";
 }
 
 if (isset($_POST['bagage'])) {
@@ -25,7 +28,7 @@ if (isset($_POST['bagage'])) {
     }
 
     if (!empty($_POST['passagiernummer']) && !empty($_SESSION['passagiernummer'])) {
-        $fouten[] = "Je bent al ingelogd";
+        $fouten[] = "Vul iets in";
     } else if (!empty($_POST['passagiernummer'])) {
         $passagiernummer = $_POST['passagiernummer'];
     } else if (!empty($_SESSION['passagiernummer'])) {
@@ -90,8 +93,6 @@ if (isset($_POST['bagage'])) {
         header("location: ingecheckt.php");
     }
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -109,20 +110,7 @@ if (isset($_POST['bagage'])) {
 
 <body>
     <?= HEADER ?>
-
     <main>
-        <section>
-            <form action="" method="post">
-                <h2>Jezelf inchecken</h2>
-                <label for="vluchtnummer">vluchtnummer:</label>
-                <input type="number" id="vluchtnummer" name="vluchtnummer">
-                <?= $passagiernummerVragen ?>
-                <?= $melding ?>
-                <label for="gewicht">Gewicht van Bagage:</label>
-                <input type="number" id="gewicht" name="gewicht" placeholder="(max 35kg)">
-                <input type="submit" value="bagage" id="bagage" name="bagage">
-            </form>
-        </section>
         <section>
             <form action="" method="post">
                 <h2>Bagage inchecken</h2>

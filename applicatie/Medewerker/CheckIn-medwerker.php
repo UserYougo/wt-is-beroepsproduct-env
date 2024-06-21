@@ -27,19 +27,6 @@ if(!isset($_SESSION['balienummer'])){
     
     <main>
         <section>
-            <form action="../Passagier-ingecheckt.php" method="get">
-                <h2>Passagier inchecken</h2>
-                <label for="vluchtnummer">vluchtnummer:</label>
-                <input type="text" id="vluchtnummer" name="vlucht" placeholder="bijvoorbeeld: AB1234" required pattern="[A-Za-z]{2}[0-9]{4}">
-                <label for="bsn">BSN-nummer:</label>
-                <input type="text" id="bsn" name="bsn-nummer" placeholder="voor bevestiging" >
-                <label for="email">e-mail:</label>
-                <input type="email" id="email" name="email-adress" placeholder="voor bevestiging" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9])(?=.*?[!@#$%^&*+`~=?\|<>/]).{8,}">
-                <input type="submit" value="Inchecken voor deze vlucht" id="knop-vlucht">
-            </form>
-        </section>
-
-        <section>
             <form action="../Bagage-ingecheckt.php" method="get">
                 <h2>Bagage inchecken</h2>
                 <label for="vluchtnummer">vluchtnummer:</label>

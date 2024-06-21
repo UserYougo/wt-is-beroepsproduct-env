@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../functies/db_connectie.php';
 require_once '../functies/medewerkerHeader.php';
 require_once '../functies/footer.php';
@@ -19,7 +20,7 @@ $maatschappijcodeOpties = "";
 $gatecodeOpties = "";
 
 if(!isset($_SESSION['balienummer'])){
-    header('location: index.php');
+    header('location: ../uitloggen.php');
     exit;
 }
 

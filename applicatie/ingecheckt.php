@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'functies/db_connectie.php';
 require 'functies/header.php';
 require_once 'functies/footer.php';
@@ -30,8 +31,6 @@ function getFlightDetails($db, $query, $parameters) {
         return null;
     }
 }
-
-session_start();
 
 if (isset($_SESSION['balienummer'])) {
     $balienummer = $_SESSION['balienummer'];

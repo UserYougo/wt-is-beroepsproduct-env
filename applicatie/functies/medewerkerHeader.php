@@ -1,5 +1,5 @@
 <?php 
-var_dump($_SESSION);
+//var_dump($_SESSION);
 define('MEDEWERKERHEADER' ,maakHeaderMedewerker());
 function maakHeaderMedewerker(){
     $html = '
@@ -10,7 +10,8 @@ function maakHeaderMedewerker(){
             <ul>
                 <li><a href="Balie.php">Balie</a></li>
                 <li><a href="passegiersVanVlucht.php">Passegiers van vlucht</a></li>
-                <li><a href="CheckIn-medwerker.php"></a></li>
+                <li><a href="passegiersOpzoeken.php">Passegiers opzoeken</a></li>
+                <li><a href="CheckIn-medwerker.php">In Checken</a></li>
                 <li><a href="Vlucht-maken.php">Nieuwe vlucht</a></li>
                 <li><a href="Passagier-toevoegen.php">Nieuwe Passagier</a></li>
                 <li><a href="../uitloggen.php">Uitloggen</a></li>

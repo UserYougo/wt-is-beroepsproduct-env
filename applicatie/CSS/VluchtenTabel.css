@@ -23,9 +23,19 @@ main {
 #medewerker-vluchtentabel {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
+    grid-gap: 3px;
     margin: 0;
     color: black;
     height: 50vh;
+    overflow: auto;
+}
+#medewerker-passagiertabel {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 5px;
+    margin: 0;
+    color: black;
+    height: auto;
     overflow: auto;
 }
 
@@ -105,7 +115,6 @@ main {
 section>ul>li>h3 {
     color: rgb(160, 236, 255);
     border-bottom: solid aquamarine 1px;
-    border-bottom-right-radius: 20px;
 }
 
 section>ul>li>a>p {
@@ -118,13 +127,8 @@ section>ul>li>p {
 }
 
 main>section>p>a{
-    color: aquamarine;
+    color: rgb(9, 255, 0);
     font-size: large;
-}
-
-section>ul>li:nth-child(4n -2) {
-    padding-right: 0px;
-    border-right: solid aquamarine 1px;
 }
 
 section>ul>li>h4{
