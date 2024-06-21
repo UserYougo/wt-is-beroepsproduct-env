@@ -4,11 +4,14 @@ require_once 'functies/db_connectie.php';
 require_once 'functies/header.php';
 require_once 'functies/footer.php';
 require_once 'functies/vluchtenFuncties.php';
-$db = maakVerbinding();
 
-$uren = 24;
-$gegevensVluchten = vluchtGegevensAankomendeAantalUur($uren, 'uur'); //kan nog dropdown voor maken
+
+$db = maakVerbinding();
+$dagen = 30;
+$gegevensVluchten = vluchtGegevensAankomendeAantalUur($dagen, 'dag'); //kan nog dropdown voor maken
 $vluchtenTabel = genereerHTMLtabelVluchten($gegevensVluchten);
+
+//header('location: Vluchtdetails.php?vluchtnummer=' . $vluchtnummer);
 ?>
 
 <!DOCTYPE html>
@@ -20,19 +23,23 @@ $vluchtenTabel = genereerHTMLtabelVluchten($gegevensVluchten);
     <link rel="stylesheet" href="../CSS/normalize.css">
     <link rel="stylesheet" href="../CSS/Style.css">
     <link rel="stylesheet" href="../CSS/VluchtenTabel.css">
-
-    <title>Homepagina GerleAirport</title>
+    <title>vluchtenoverzicht</title>
 </head>
 
 <body>
     <?= HEADER ?>
     <main>
-        <h1>Welkom op de homepagina</h1>
         <section id="vluchten">
-            <h2>Vertrekkende vluchten voor aankomende <?= $uren ?> uur</h2>
+            <h2>Vertrekkende vluchten voor de volgende <?= $dagen ?> dagen:</h2>
             <?= $vluchtenTabel ?>
-            <h3>Voor alle vluchten druk <a href="Vluchtenoverzicht.php"> <strong>Hier </strong></a></h3>
+            <br>
+            <form action='Vluchtdetails.php' method="get">
+            <label>vluchtnummer invoeren</label>
+            <input type="text" id="vluchtnummerzoeken" name="vluchtnummer" required>
+            <input type="submit" value="zoeken" id="zoeken">
+        </form>;
         </section>
+        
     </main>
     <?= FOOTER ?>
 </body>

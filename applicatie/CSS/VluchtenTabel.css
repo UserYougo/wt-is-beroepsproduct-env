@@ -1,0 +1,132 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#vluchten>table {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    display: grid;
+    column-gap: 10px;
+    height: 60vh;
+    border-spacing: 10px;
+    overflow: scroll;
+}
+
+#detail-tabel {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+#medewerker-vluchtentabel {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    margin: 0;
+    color: black;
+    height: 50vh;
+    overflow: auto;
+}
+
+#link {
+    color: salmon;
+}
+
+@media screen and (max-width: 1200px) {
+    .grote-tabel{
+        font-size: smaller;
+    }
+    ul>li>h3 {
+        font-size: medium;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .grote-tabel{
+        font-size: smaller;
+    }
+    ul>li>p {
+        margin: 5px;
+       }
+    ul>li>h3 {
+        font-size: small;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .grote-tabel{
+        font-size: x-small;
+    }
+    ul>li>p {
+     margin: 4px;
+    }
+    ul>li>h3 {
+        font-size: smaller;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .grote-tabel{
+        font-size: xx-small;   
+    }
+    ul>li>p {
+        margin-right: 3px;
+       }
+    ul>li>h3 {
+        font-size: x-small;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    main>section:nth-last-child(2) {
+        display: none;
+    }  
+}
+
+
+.te-klein-tekst {
+    display: none;
+}  
+
+@media screen and (max-width: 500px) {
+    div>p {
+        background-color: aquamarine;
+        border: solid black 2px;
+        border-radius: 5px;
+        font-size: small;
+        padding: 3px;
+    }
+
+    .te-klein-tekst {
+        display: contents;
+    }  
+
+}
+section>ul>li>h3 {
+    color: rgb(160, 236, 255);
+    border-bottom: solid aquamarine 1px;
+    border-bottom-right-radius: 20px;
+}
+
+section>ul>li>a>p {
+    color: aquamarine;
+    font-size: large;
+}
+
+section>ul>li>p {
+    color: aquamarine;
+}
+
+main>section>p>a{
+    color: aquamarine;
+    font-size: large;
+}
+
+section>ul>li:nth-child(4n -2) {
+    padding-right: 0px;
+    border-right: solid aquamarine 1px;
+}
+
+section>ul>li>h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

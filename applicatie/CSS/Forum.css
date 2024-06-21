@@ -1,0 +1,42 @@
+main>section>* {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    border: solid black 2px;
+}
+
+section>h2 {
+    border-bottom: none;
+    margin-bottom: 0px;
+    align-self: center;
+}
+
+main>section {
+    margin-top: 1vh;
+}
+
+form>:last-child {
+    margin-top: 10px;
+}
+
+form>p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+input::placeholder {
+    font-size: medium;
+}
+
+form>h2 {
+    text-align: center;
+}
+
+select {
+    text-align: right;
+}
+
+form>p {
+    font-size: medium;
+}
+

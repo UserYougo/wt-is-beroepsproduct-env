@@ -1,31 +1,56 @@
 <?php
-require_once 'PHP_defaultIncludes/db_connectie.php';
+require_once 'functies/db_connectie.php';
 
-function test(){
-    $db = maakVerbinding();
-    $sql_test = "SELECT * FROM Gate";
-    $querry = $db->prepare($sql_test);
-    $querry->execute();
-	
+function genereerHTMLtabelVluchten($lijst) {
+    $html = '<table>';
+    $html.=     '<tr>   
+                    <th>Vertrektijd</th>
+                    <th>Luchthavencode</th>
+                    <th>Vluchtnummer</th>
+                    <th>Gate</th>
+                    <th>Luchtvaartmaatschappij</th>
+                </tr>';
+    foreach ($lijst as $row) {
+        $html.= '<tr>';
+        $html.= '<td>'. implode('</td><td>', $row). '</td>';
+        $html.= '</tr>';
+    }
+    $html.= '</table>';
+    return $html;
 }
-function vluchtGegevensAankomendeAantalUur($aantalUur)
+
+function vluchtGegevensAankomendeAantalUur($aantal, $uurOfDag)
 {
     $db = maakVerbinding();
-    $sql_Vluchtgegevens = "SELECT 
-    v.VLUCHTNUMMER AS Vluchtnummer, 
-    l.naam, 
-    l.land, 
-    m.naam, 
-    FORMAT (vertrektijd, 'HH:mm') Vertrektijd, gatecode Gate 
-	FROM Vlucht v
-	LEFT JOIN Maatschappij m  ON v.maatschappijcode = m.maatschappijcode 
-	LEFT JOIN Luchthaven l ON v.bestemming = l.luchthavencode
-	WHERE vertrektijd 
-            BETWEEN (DATEADD(HOUR, 2, GETDATE())) AND (DATEADD(HOUR, 2 + :aantalUur , GETDATE()) )
-	ORDER BY v.vertrektijd ASC";
-    //DB loopt server kant 2 uur achter dus plus 2 voor biede
+    if($uurOfDag == 'uur'){
+        $sql_Vluchtgegevens = 
+        "SELECT  
+                FORMAT (v.vertrektijd, 'HH:mm') as Vertrektijd,
+                v.bestemming as Luchthavencode, 
+                v.VLUCHTNUMMER AS Vluchtnummer, 
+                gatecode as Gate, 
+                m.naam as LuchvaartMaatschappij
+        FROM Vlucht v
+        LEFT JOIN Maatschappij m  ON v.maatschappijcode = m.maatschappijcode 
+        WHERE vertrektijd 
+                BETWEEN (DATEADD(HOUR, 2, GETDATE())) AND (DATEADD(HOUR, 2 + :aantal , GETDATE()) )
+        ORDER BY v.vertrektijd ASC";
+        //DB server kant loopt 2 uur achter dus plus 2 voor biede
+    } else if($uurOfDag == 'dag'){
+            $sql_Vluchtgegevens = 
+        "SELECT  
+            FORMAT(vertrektijd, 'dd-MMM-HH:mm') as Vertrektijd,
+            v.bestemming as Luchthavencode, 
+            v.VLUCHTNUMMER AS Vluchtnummer, 
+            gatecode as Gate, 
+            m.naam as LuchvaartMaatschappij 
+        FROM Vlucht	v
+        LEFT JOIN Maatschappij m ON v.maatschappijcode = m.maatschappijcode 
+            WHERE vertrektijd BETWEEN GETDATE() AND DATEADD(DAY, :aantal, GETDATE())
+        ORDER BY v.vertrektijd DESC";
+    }
     $querry = $db->prepare($sql_Vluchtgegevens);
-    $querry->bindParam(':aantalUur', $aantalUur, PDO::PARAM_INT);
+    $querry->bindParam(':aantal', $aantal, PDO::PARAM_INT);
     $querry->execute();
     $result = $querry->fetchAll(PDO::FETCH_ASSOC);
 

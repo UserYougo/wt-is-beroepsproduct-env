@@ -1,0 +1,21 @@
+section {
+    opacity: 80%;
+}
+
+.search {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+.search > * {
+    margin: 1vh 1vw;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+

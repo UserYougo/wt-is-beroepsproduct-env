@@ -1,0 +1,29 @@
+header {
+    color: white;
+    background-color: black;
+}
+
+main {
+    background-image: url(../Afbeeldingen/Privacy.webp);
+}
+
+main>*{
+    opacity: 80%;
+}
+
+strong {
+    background-color: white;
+    color: black;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+article {
+    background-color: whitesmoke;
+    height: fit-content;
+    margin-top: 10vh;
+}
+
+article>h2 {
+    text-align: center;
+}
